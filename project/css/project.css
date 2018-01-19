@@ -1,0 +1,229 @@
+body{
+   background: url('../img/ps.png');
+
+  font-family: 'Coda', cursive;}
+  #snackbar {
+      visibility: hidden;
+      min-width: 250px;
+      margin-left: -125px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 2px;
+      padding: 16px;
+      position: fixed;
+      z-index: 1;
+      left: 50%;
+      bottom: 30px;
+      font-size: 17px;
+  }
+
+  #snackbar.show {
+      visibility: visible;
+      -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+
+  @-webkit-keyframes fadein {
+      from {bottom: 0; opacity: 0;}
+      to {bottom: 30px; opacity: 1;}
+  }
+
+  @keyframes fadein {
+      from {bottom: 0; opacity: 0;}
+      to {bottom: 30px; opacity: 1;}
+  }
+
+  @-webkit-keyframes fadeout {
+      from {bottom: 30px; opacity: 1;}
+      to {bottom: 0; opacity: 0;}
+  }
+
+  @keyframes fadeout {
+      from {bottom: 30px; opacity: 1;}
+      to {bottom: 0; opacity: 0;}
+  }
+
+  @font-face {
+    font-weight: normal;
+    font-style: normal;
+    font-family: 'Pokemon Solid';
+    src: url('fonts/Pokemon Solid.eot');
+    src: local('â˜º'), url('fonts/Pokemon Solid.woff') format('woff'), url('fonts/Pokemon Solid.ttf') format('truetype'), url('fonts/Pokemon Solid.svg') format('svg');
+  }
+
+  /* header */
+  .site-title {
+    margin: 60px 0 40px;
+    color: #ffcb05;
+    text-align: center;
+    text-shadow: 6px 6px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -3px 1px 0 #000, 3px 2px 0 #000;
+    letter-spacing: 8px;
+    font: 100px/100px 'Pokemon Solid', Helvetica, Arial, Sans-Serif;
+    -webkit-text-stroke: 5px #3c5aa6;
+  }
+
+.container
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.scorePanel
+{
+  display:inline-block;
+  width: 600px;
+  text-align: center;
+  align-items: center;
+  height: 35px;
+  font-size: 20px;
+}
+
+ul#stars
+{
+  display: inline;
+  float: left;
+
+  width: 100px;
+  margin: 0;
+  padding: 0;
+}
+ul#stars li
+{
+  float: left;
+  margin-right: 10px;
+  display: inline;
+  list-style-type: none;
+  list-style: none;
+  font-size: 25px;
+}
+
+.scorePanel.moves
+{
+  float: center;
+  font-size: 25px;
+
+
+}
+
+.scorePanel.restart
+{
+  float: right;
+  margin-left: 197px;
+}
+
+.deck
+{
+
+  background: linear-gradient(to right, #000000, #e5008d, #ff070b);
+  display: flex;
+  flex-wrap: wrap;
+  height: 740px;
+  width: 740px;
+  margin: 0 auto;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 12px 15px 20px 0px rgba(46, 61, 73, 0.5);
+
+}
+
+ .deck .cards
+ {
+  height: 160px;
+  width: 160px;
+  background: #2e3d49;
+  display: inline-block;
+  margin: 0 25px 25px 0;/*actual spacing b/w each card isko change mat krna kbi b*/.
+  background: #ffb347;
+  background: -webkit-linear-gradient(to right, #ffcc33, #ffb347);
+  background: linear-gradient(to right, #ffcc33, #ffb347);
+  background-image: url('../img/pokeball.png');
+  background-size:cover;
+  background-repeat:no-repeat;
+  font-size: 0;
+  color: Yellow;
+  align-items: center;
+  text-align: center;
+  border-radius: 80px;/* makes the card circular*/
+  cursor: pointer;
+  transition: width 1s,height 1s,transform 1s;
+}
+
+.deck .cards:hover
+{
+
+  height: 160px;
+  width: 160px;
+  transform: rotate(90deg);
+}
+
+.text {
+  text-align: center;
+  margin-top: 56px;
+  color: #fff;
+  font-size: 1.0em;
+  font-family: sans-serif;
+
+}
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-iteration-count:2;
+}
+
+@keyframes shake {
+  0%, 100% {transform: translateX(0);}
+  10%, 30%, 50%, 70%, 90% {transform: translateX(-10px);}
+  20%, 40%, 60%, 80% {transform: translateX(10px);}
+}
+.shake {
+  animation-name: shake;
+}
+
+
+@keyframes flip {
+  0% {transform: perspective(400px) translateZ(0) rotateY(0) scale(1);animation-timing-function: ease-out;}
+  40% {transform: perspective(400px) translateZ(150px) rotateY(170deg) scale(1);animation-timing-function: ease-out;}
+  50% {transform: perspective(400px) translateZ(150px) rotateY(190deg) scale(1);animation-timing-function: ease-in;}
+  80% {transform: perspective(400px) translateZ(0) rotateY(360deg) scale(.95);animation-timing-function: ease-in;}
+  100% {transform: perspective(400px) translateZ(0) rotateY(360deg) scale(1);animation-timing-function: ease-in;}
+}
+.animated.flip {
+
+  animation-name: flip;
+}
+
+.deck .cards.open
+{
+  transform: rotateY(200deg);
+  background: #02b3e4;
+  cursor:default;
+
+}
+
+.deck .cards.show
+{
+  font-size: 60px;
+}
+
+.deck .cards.match
+{
+  background: lightgreen;
+  font-weight: 500;
+  font-size: 60px;
+  cursor: default;
+}
+
+.deck .cards.notMatch
+{
+  background: orange;
+  font-size: 60px;
+
+}
+.swal2-overlay {
+  background-color: white;
+}
